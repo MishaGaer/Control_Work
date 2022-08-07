@@ -46,6 +46,19 @@ string[] FillArray(string[] array)
     }
     return array;
 }
+//Метод печати массива в консоль
+void PrintArray(string[] array, string message)
+{
+    Console.Write(message);
+    Console.WriteLine();
+    for (int i = 0; i + 1 < array.Length; i++)
+    {
+        Console.Write($"\"{array[i]}\", ");
+    }
+    Console.Write($"\"{array[array.Length - 1]}\"");
+    Console.WriteLine();
+
+}
 
 //Основной код
 int arraySize = InputControl("Введите размер массива.");
@@ -53,3 +66,4 @@ Console.Clear();
 string[] arrayString = new string[arraySize];
 FillArray(arrayString);
 Console.Clear();
+PrintArray(arrayString, "Введенный Вами массив:");
