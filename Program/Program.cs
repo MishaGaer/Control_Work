@@ -59,7 +59,37 @@ void PrintArray(string[] array, string message)
     Console.WriteLine();
 
 }
+//Метод определяющий размер нового массива и заполненяющий массив строками в которых меньше четырех символов
+string[] FillResultArray(string[] originalArray)
+{
+    int newArraySize = 0;
+    for (int i = 0; i < originalArray.Length; i++)
+    {
+        if (originalArray[i].Length < 4)
+        {
+            newArraySize++;
+        }
+    }
+    string[] resultArray = new string[newArraySize];
+    if (newArraySize == 0)
+    {
+        Console.WriteLine("В введенном Вами массиве нет элементов короче четырех символов!");
+        Environment.Exit(0);
+    }
+    {
+        int j = 0;
+        for (int i = 0; i < originalArray.Length; i++)
+        {
+            if (originalArray[i].Length < 4)
+            {
+                resultArray[j] = originalArray[i];
+                j++;
+            }
+        }
+        return resultArray;
 
+    }
+}
 //Основной код
 int arraySize = InputControl("Введите размер массива.");
 Console.Clear();
@@ -67,3 +97,5 @@ string[] arrayString = new string[arraySize];
 FillArray(arrayString);
 Console.Clear();
 PrintArray(arrayString, "Введенный Вами массив:");
+string[] resultArrayString = FillResultArray(arrayString);
+PrintArray(resultArrayString, "Массив из элементов в которых меньше четырех символов:");
