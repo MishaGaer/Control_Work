@@ -29,7 +29,27 @@ int InputControl(string message)
         }
     }
 }
+//Метод ввода массива с клавиатуры
+string[] FillArray(string[] array)
+{
+    Console.Clear();
+    for (int i = 0; i < array.Length; i++)
+    {
+        {
+            Console.WriteLine($"Введите значение в {i + 1}-й элемент массива. Осталось заполнить {array.Length - i} элементов.");
+            array[i] = Console.ReadLine();
+            if (array[i] == "")
+            {
+                Console.WriteLine($"{i + 1}-й элемент массива содержит 0 символов");
+            }
+        }
+    }
+    return array;
+}
 
 //Основной код
 int arraySize = InputControl("Введите размер массива.");
+Console.Clear();
+string[] arrayString = new string[arraySize];
+FillArray(arrayString);
 Console.Clear();
